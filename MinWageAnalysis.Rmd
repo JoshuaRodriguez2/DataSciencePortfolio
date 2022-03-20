@@ -1,0 +1,132 @@
+---
+title: "Minimum Wage From 1968-2020"
+author: "Joshua Rodriguez"
+
+output:
+  ioslides_presentation: default
+  slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE}
+suppressMessages(library(plotly))
+df=read.csv("/Users/joshuarodriguez/Desktop/Minimum\ Wage\ Data.csv",header=TRUE)
+dd=read.csv("/Users/joshuarodriguez/Desktop/Costofliving.csv",header=TRUE)
+```
+---
+---
+```{r,message=FALSE, warning=FALSE}
+suppressMessages(library(dplyr))
+suppressMessages(library(ggplot2))
+regress<-df%>%
+  select(Year,State,Federal.Minimum.Wage,CPI.Average)%>%
+  filter(State=="Alaska")%>%
+  select(Year,Federal.Minimum.Wage,CPI.Average)
+#head(regress)
+regplot<-ggplot(regress,aes(x=Federal.Minimum.Wage, y=CPI.Average)) +
+  stat_summary(fun.regress=mean_cl_normal) + 
+  geom_smooth(method='lm', formula= y~x)
+regplot
+```
+---
+```{r,message=FALSE,,warning=FALSE}
+library(dplyr)
+library(ggplot2)
+cp<-df%>%
+  filter(State==c("California","New York","Georgia","Texas"))%>%
+  select(Year,State,State.Minimum.Wage)
+g<-ggplot(data = cp, aes(x=Year, y=State.Minimum.Wage,group=State,color=State)) +
+  geom_line() 
+g
+```
+---
+```{r,message=FALSE}
+library(dplyr)
+library(ggplot2)
+cp<-df%>%
+  filter(State==c("California"))%>%
+  select(Year,State,CPI.Average)
+g1<-ggplot(data = cp, aes(x=Year, y=CPI.Average,group=State)) +
+  geom_line() 
+g1
+```
+---
+```{r,message=FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+cp<-df%>%
+  filter(State==c("California","New York","Georgia","Texas"))%>%
+  select(Year,State,State.Minimum.Wage.2020.Dollars)
+#head(cp)
+g2<-ggplot(data = cp, aes(x=Year, y=State.Minimum.Wage.2020.Dollars,color=State)) +
+  geom_line() 
+g2
+```
+---
+```{r,message=FALSE,warning=FALSE}
+library(dplyr)
+library(ggplot2)
+cp<-df%>%
+  filter(State==c("California","New York","Georgia","Texas"))%>%
+  select(State,Effective.Minimum.Wage,CPI.Average)
+g4<-ggplot(data = cp, aes(x=Effective.Minimum.Wage, y=CPI.Average,color=State)) +
+  geom_point(size=1, shape=23) 
+g4
+```
+---
+## Bell Curve of Quality Of Life Relative Value {.smaller}
+```{r,message=FALSE}
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+cp<-df%>%
+  filter(Year==2020)%>%
+  select(State,Effective.Minimum.Wage.2020.Dollars)
+comb<-merge(cp,dd,by=c('State','State'),all.x=T)
+bus<-mutate(comb,relative=(costIndex/Effective.Minimum.Wage.2020.Dollars))
+sd<-sd(bus$relative,na.rm=TRUE)
+m<-mean(bus$relative,na.rm=TRUE)
+p1 <- ggplot(data = bus, aes(relative)) +
+  stat_function(fun = dnorm, n = 54, args = list(mean = m, sd =sd )) + xlab("Relative Cost Value") +
+  scale_y_continuous(breaks = NULL)
+p1
+filter(bus, relative>=13.5)
+filter(bus, relative<=10.0)
+jam<-mutate(bus, minwage=costIndex/11.833,azrel=costIndex/8.0833)
+sd1m<-sd(bus$Effective.Minimum.Wage.2020.Dollars,na.rm=TRUE)
+sd2m<-sd(jam$minwage,na.rm=TRUE)
+m1m<-mean(bus$Effective.Minimum.Wage.2020.Dollars,na.rm=TRUE)
+m2m<-mean(jam$minwage,na.rm=TRUE)
+mAm<-mean(jam$azrel,na.rm=TRUE)
+sdAm<-sd(jam$azrel,na.rm=TRUE)
+new<-merge(jam,bus,by=c('State','State'),all.x=T)
+g3<-ggplot(data=new,aes(x=minwage)) + 
+  stat_function(fun = dnorm, n=54,args = list(mean = m2m, sd = sd2m),col='red') +
+  stat_function(aes(x=Effective.Minimum.Wage.2020.Dollars.x),fun = dnorm, n=54,args = list(mean = m1m, sd = sd1m),col='blue')+
+  stat_function(aes(x=azrel),fun = dnorm, n=54,args = list(mean = mAm, sd = sdAm), col='darkgreen')
+g3
+comparemin<-select(jam,State,Effective.Minimum.Wage.2020.Dollars,azrel)
+comparemin2<-comparemin %>%  drop_na(azrel)
+comparemin2
+```
+---
+```{r}
+library(plotly)
+plt<- plot_ly(comparemin2, x = ~State, y = ~Effective.Minimum.Wage.2020.Dollars, type = 'bar', name = '2020 Min Wage')
+plt<- plt %>% add_trace(y = ~(azrel-Effective.Minimum.Wage.2020.Dollars), name = 'AZ Quality of Life Wage')
+plt<- plt %>% layout(yaxis = list(title = 'Count'), barmode = 'stack')
+plt
+```
+---
+```{r cp, echo = TRUE}
+cp<-df%>%
+  filter(Year==2020)%>%
+  select(State,Effective.Minimum.Wage.2020.Dollars)
+comb<-merge(cp,dd,by=c('State','State'),all.x=T)
+bud<-mutate(comb,relative=(costIndex/Effective.Minimum.Wage.2020.Dollars))
+bus<-select(bud,State,relative)
+filter(bus, relative>=13)
+```
