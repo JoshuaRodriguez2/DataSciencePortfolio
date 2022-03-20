@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "tena-website"
-  }
+    "default": "portfolio-47e94 ",
+    "Portfolio": "portfolio-47e94"
+  },
+  "targets": {}
 }

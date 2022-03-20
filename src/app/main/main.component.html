@@ -1,191 +1,673 @@
-<!--
-<div class="banner">
-    <div class="banner-text">
-        <h1>Tena Transportation</h1>
-        <h3>Trucking Logistics Company</h3>
-        <h5>Casa Grande, Arizona</h5>
-    </div>
-</div>
-<div class="box" fxlayout="column" fxLayoutAlign="center center">
-    <div class="banner-text">
-    <h1>Website Coming Soon...</h1>
-    </div>
-  </div>
--->
-
-
-<div fxLayout="column">
-    <mat-toolbar class="toolbar" fxLayout="row" fxFlex="grow shrink 100%" style="background-color:rgba(255, 255, 255, 0)">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Ubuntu:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto+Mono:wght@300&family=Scheherazade+New:wght@400;700&display=swap');
+    </style>
+</head>
+<div id="logo" fxLayout="column">
+    <mat-toolbar *ngIf="isNotWideScreen$ | async" class="toolbar" fxLayout="row" fxFlex="grow shrink 100%"
+        style="background-color:rgba(255, 255, 255, 0)" fxLayoutAlign="center center">
         <div class="logo" fxFlex="10">
-            <img src="assets/tenatrans.png" height="35px">
+            <a href="#logo"><img src="assets/TIERRA-7.png" height="100px"
+                    style="position: relative;left: -70px;padding-bottom: 5px;"></a>
         </div>
-        <div class="material_icon" fxFlex="grow-shrink 100%" fxLayoutAlign="end end">
-        <img src="assets/hamburger.png" height="25px">
-        </div>  
+
+    </mat-toolbar>
+    <mat-toolbar *ngIf="isWideScreen$ | async" class="toolbar" fxLayout="row" fxFlex="grow shrink 100%"
+        style="background-color:rgba(255, 255, 255, 0)" fxLayoutAlign="center center">
+        <div class="logo" fxFlex="10">
+            <a href="#logo"><img src="assets/TIERRA-7.png" height="88px"
+                    style="position: relative;left: -70px;padding-bottom: 3px;"></a>
+        </div>
+
     </mat-toolbar>
 
-    <!--Carousel Section Code Liner 67:103-->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active">
+    <div class="line">
 
-            </li>
-            <li data-target="#myCarousel" data-slide-to="1">
-
-            </li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="overlay-image" style="background-image:url(assets/blue.png);">
-                </div>
-                <div class="container">
-                    <h1>Trucking Logistics</h1>
-                </div>
+    </div>
+    <div *ngIf="isNotWideScreen$ | async">
+        <mat-toolbar class="toolbar2">
+            <div fxLayoutAlign="center center" fxFlex=20>
+                <p href="#testimonials"
+                    style="font-family: 'Roboto Mono', monospace;font-weight: 200;position: relative;top: 8px;"><a
+                        style="text-decoration: none;color: black;" href="#promises">MY STRENGTHS
+                    </a></p>
             </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <h1>Ten Headline</h1>
-                </div>
+            <div fxLayoutAlign="center center" fxFlex=20>
+                <p style="font-family: 'Roboto Mono', monospace;font-weight: 300;position: relative;top: 8px;"><a
+                        style="text-decoration: none;color: black;" href="#about_us">WHAT IS GMI</a></p>
             </div>
-        </div>
-        <a href="#myCarousel" class="carousel-control-prev" role="button" data-slide="prev">
-            <span class="sr-only"></span>
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </a>
-        <a href="#myCarousel" class="carousel-control-next" role="button" data-slide="next">
-            <span class="sr-only"></span>
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </a>
+            <div fxLayoutAlign="center center" fxFlex=20>
+                <p style="font-family: 'Roboto Mono', monospace;font-weight: 300;position: relative;top: 8px;"><a
+                        style="text-decoration: none;color: black;" href="#about">ABOUT ME</a></p>
+            </div>
+            <div fxLayoutAlign="center center" fxFlex=20>
+                <p style="font-family: 'Roboto Mono', monospace;font-weight: 300;position: relative;top: 8px;"><a
+                        style="text-decoration: none;color: black;" href="#testimonials">PORTFOLIO LINKS
+                    </a></p>
+            </div>
+            <div fxLayoutAlign="center center" fxFlex=20>
+                <p style="font-family: 'Roboto Mono', monospace;font-weight: 300;position: relative;top: 8px;"><a
+                        style="text-decoration: none;color: black;" href="#contact_info">CONTACT INFO
+                    </a> </p>
+            </div>
+        </mat-toolbar>
     </div>
 
-    <!--White Block beneath Carousel  104:144-->
-    <div class="container_2" fxFlex="100">
-        <div class="card_box" fxLayout="row" fxLayoutAlign="center center" fxFlex="1 1 100%">
-            <mat-card class="card">
-                <mat-card-title>
-                    <h1></h1>
-                </mat-card-title>
-                <mat-card-content>
+    <div *ngIf="isWideScreen$ | async">
+        <mat-toolbar class="toolbar2">
+            <div fxLayoutAlign="center center" fxFlex=33>
+                <p href="#testimonials"
+                    style="font-family: 'Roboto Mono', monospace;font-weight: 200;position: relative;top: 8px;font-size: 12.32px;">
+                    <a style="text-decoration: none;color: black;" href="#promises">MY STRENGTHS
+                    </a>
+                </p>
+            </div>
+            <div fxLayoutAlign="center center" fxFlex=33>
+                <p
+                    style="font-family: 'Roboto Mono', monospace;font-weight: 300;position: relative;top: 8px;font-size: 12.32px;">
+                    <a style="text-decoration: none;color: black;" href="#testimonials">PORTFOLIO LINKS
+                    </a>
+                </p>
+            </div>
+            <div fxLayoutAlign="center center" fxFlex=33>
+                <p
+                    style="font-family: 'Roboto Mono', monospace;font-weight: 300;position: relative;top: 8px;font-size: 12.32px;">
+                    <a style="text-decoration: none;color: black;" href="#contact_info">CONTACT INFO
+                    </a>
+                </p>
+            </div>
 
+        </mat-toolbar>
+    </div>
+    <div>
+
+    </div>
+
+    <div *ngIf="isNotWideScreen$ | async" fxLayout="column" style="height: 600px;background-color: rgb(255, 115, 0);">
+        <div fxLayout="row" fxFlex=80>
+            <div style="color: white;top: 40px; position: relative;" fxLayoutAlign="center center" fxFlex=55
+                fxLayout="column">
+                <p style="font-family: 'Raleway', sans-serif;font-weight: 300;">ARIZONA</p>
+                <h1
+                    style="font-family: 'Scheherazade New', serif;font-weight: bold; font-size:63px; text-align: center;">
+                    Data and Experienced Based Global Market Insights</h1>
+                <p style="font-family: 'Raleway', sans-serif;font-weight: 300;top: 20px;position: relative;">BASED
+                    COMPANY
+                </p>
+            </div>
+            <div fxFlex=45>
+                <img src="assets/lourve.jpg" style="border-radius: 50%; top: 26px;position: relative;" height="500px">
+            </div>
+        </div>
+        <div class="custom-shape-divider-bottom-1633044340" style="top: 55px;">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </div>
+
+
+    <div *ngIf="isWideScreen$ | async" fxLayout="column" style="background-color: rgb(255, 115, 0);">
+        <div fxLayout="column" fxFlex=80>
+            <div fxLayoutAlign="center center">
+                <img src="assets/lourve.jpg" style="border-radius: 50%; position: relative;top: 20px; " height="350px">
+            </div>
+            <div style="color: white;top: 40px; position: relative;" fxLayoutAlign="center center" fxLayout="column">
+                <h1
+                    style="font-family: 'Scheherazade New', serif;font-weight: bold; font-size:40px; text-align: center;padding-bottom: 10%;width: 80%;">
+                    Data and Experienced Based Global Market Insights</h1>
+
+            </div>
+
+        </div>
+        <div class="custom-shape-divider-bottom-1633044340">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </div>
+
+
+    <div *ngIf="isNotWideScreen$ | async" id="promises" class="container_2" fxFlex="100" fxLayout="column"
+        style="height: 650px;">
+        <div class="card_box" fxLayout="row" fxLayoutGap="95px" fxLayoutAlign="center center" fxFlex="1 1 100%">
+            <mat-card class="card mat-elevation-z8" fxLayoutAlign="start center" fxLayout="column">
+                <mat-card-title class="material-icons-outlined md-48" style="color:rgb(255, 102, 0);">
+                    social_distance
+                </mat-card-title>
+                <mat-card-subtitle style="color: rgb(95, 95, 95);">Insight Communication</mat-card-subtitle>
+                <mat-card-content>
+                    <p style="color: darkgrey; font-weight: 100; text-align: center;">I've always enjoyed telling
+                        stories, so one of my strongests assets
+                        as a data scientist would be my ability to poetically configure insights into a understandable
+                        story. </p>
                 </mat-card-content>
             </mat-card>
-            <mat-card class="card2">
-                <mat-card-title>
-                    <h1></h1>
+            <mat-card class="card mat-elevation-z8" fxLayoutAlign="start center" fxLayout="column">
+                <mat-card-title class="material-icons-outlined md-48" style="color:rgb(255, 102, 0);">
+                    cases
                 </mat-card-title>
+                <mat-card-subtitle style="color: rgb(95, 95, 95);">Business Oriented</mat-card-subtitle>
                 <mat-card-content>
-
+                    <p style="color: darkgrey; font-weight: 100; text-align: center;">You won't have to stash in the
+                        closet office. The primary
+                        reason I chose Data Science over Software Eng. is for the integration a D.S. has in the busienss
+                        proccess.</p>
                 </mat-card-content>
             </mat-card>
-            <mat-card class="card3">
-                <mat-card-title>
-                    <h1></h1>
+            <mat-card class="card mat-elevation-z8" fxLayoutAlign="start center" fxLayout="column">
+                <mat-card-title class="material-icons md-48" style="color:rgb(255, 102, 0);">
+                    trending_up
                 </mat-card-title>
+                <mat-card-subtitle style="color: rgb(95, 95, 95);">Technical Abilities</mat-card-subtitle>
                 <mat-card-content>
-
+                    <p style="color: darkgrey; text-align: center;">
+                        Having a background in Economics, Programming, and Statistics. I believe along with my soft
+                        skills i have the proper hard skills to compliment them.
+                    </p>
                 </mat-card-content>
             </mat-card>
-            <mat-card class="card4">
-                <mat-card-title>
-                    <h1></h1>
-                </mat-card-title>
-                <mat-card-content>
 
+            <mat-card class="card mat-elevation-z8" fxLayoutAlign="start center" fxLayout="column">
+                <mat-card-title class="material-icons md-48" style="color:rgb(255, 102, 0);">
+                    translate
+                </mat-card-title>
+                <mat-card-subtitle style="color: rgb(95, 95, 95);">Cultural Adaptation</mat-card-subtitle>
+                <mat-card-content>
+                    <p style="color: darkgrey; font-weight: 100; text-align: center;">Through experience abroad I
+                        understand well the discrepencies
+                        between nations and how to account for them in data research.
+                    </p>
                 </mat-card-content>
             </mat-card>
+
+        </div>
+        <div class="custom-shape-divider-bottom-1633126678">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            </svg>
         </div>
     </div>
 
 
-    <div class="container_3" fxlayout="row" flex="grow shrink 100%">
-        <div fxFlex="grow shrink 100%">
-            <div fxFlex="10">
+    <div *ngIf="isWideScreen$ | async" id="promises" fxLayout="Column" class="container_2" fxFlex="100">
+        <div>
+            <div style="padding-top: 30px;padding-bottom: 30px;" fxLayout="column" fxLayoutGap="30px"
+                fxLayoutAlign="center center" fxFlex="1 1 100%">
+                <mat-card class="card mat-elevation-z8" fxLayoutAlign="start center" fxLayout="column">
+                    <mat-card-title class="material-icons-outlined md-48" style="color:rgb(255, 102, 0);">
+                        social_distance
+                    </mat-card-title>
+                    <mat-card-subtitle style="color: rgb(95, 95, 95);">Insight Communication</mat-card-subtitle>
+                    <mat-card-content>
+                        <p style="color: darkgrey; font-weight: 100; text-align: center;">I've always enjoyed telling
+                            stories, so one of my strongests assets
+                            as a data scientist would be my ability to poetically configure insights into a
+                            understandable story.</p>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="card mat-elevation-z8" fxLayoutAlign="start center" fxLayout="column">
+                    <mat-card-title class="material-icons-outlined md-48" style="color:rgb(255, 102, 0);">
+                        trending_up
+                    </mat-card-title>
+                    <mat-card-subtitle style="color: rgb(95, 95, 95);">Technical Abilities</mat-card-subtitle>
+                    <mat-card-content>
+                        <p style="color: darkgrey; font-weight: 100; text-align: center;">Having a background in
+                            Economics, Programming, and Statistics.
+                            I believe along with my soft skills i have the proper hard skills to compliment them.</p>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="card mat-elevation-z8" fxLayoutAlign="start center" fxLayout="column">
+                    <mat-card-title class="material-icons md-48" style="color:rgb(255, 102, 0);">
+                        translate
+                    </mat-card-title>
+                    <mat-card-subtitle style="color: rgb(95, 95, 95);">Cultural Adaptation</mat-card-subtitle>
+                    <mat-card-content>
+                        <p style="color: darkgrey; text-align: center;">Through experience abroad I understand well the
+                            discrepencies
+                            between nations and how to account for them in data research.
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
 
-            </div>
-            <div class="about_comp" fxFlex="20" fxLayoutAlign="center top">
-                <h1><strong>ABOUT COMPANY</strong></h1>
-            </div>
-            <div fxFlex="8">
 
-            </div>
-            <div fxFlex="35">
-                <img class="TRUCKER" src="assets/trucker.PNG">
-            </div>
-            <div class="about_paragraph" fxLayout="column" fxFlex="25" fxLayoutAlign="end center">
-                <p>Some really importnat stuff will go right here that explaiens what the company does and the value it
-                    provides.jhbedvj ihebjg ierhjh fjewhfjwjkw efkjwebn ejeriogr jgoierjoi poiwej gpowei jjwpgeiog
-                    jwepoig df efg fdfd e gg edg g fdgbd fgb erh wrhg eg heg h egb edhb eh egrh grh egr </p>
-                <div class="square">
+    </div>
 
-                </div>
+
+
+
+    <div id="about_us" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center" flex="grow shrink 100%"
+        style="margin-bottom: 80px;margin-top: 75px;">
+
+        <h1 *ngIf="isNotWideScreen$ | async"
+            style="top:45px;position: relative;font-family: 'Scheherazade New', serif;font-weight: bold;font-size: 60px;color: rgb(95, 95, 95);text-align: center;width: 70%;">
+            My Dream Position</h1>
+        <h1 *ngIf="isWideScreen$ | async"
+            style="top:45px;position: relative;font-family: 'Scheherazade New', serif;font-weight: bold;font-size: 30px;color: rgb(95, 95, 95);text-align: center;width: 70%;">
+            My Dream Position</h1>
+        <p *ngIf="isNotWideScreen$ | async"
+            style="top:45px;position: relative;width:80%; text-align: center; color: darkgrey; font-size: 17px;">
+            When I fantasize of my dream position in the Data Science World, it includes responsibilities that leak into
+            all sectors of the business process. The profession of Data Science is much like an artist to me.
+            An artist in a sense that they must be given data, dissect it, extract meaning, and then be able to convey
+            the meaning to others in layman terms. There’s a beauty in overseeing every step in your process.
+            My dream position would not only include the technical role of collecting, manipulating, and extracting
+            insight from data. But also having the responsibility to present my findings to higher ups or stake holders
+            .I believe that no one can convey the meaning of their craft better than the crafter
+            themself.
+        </p>
+        <p *ngIf="isWideScreen$ | async"
+            style="top:45px;position: relative;width:80%; text-align: center; color: darkgrey; font-size: 17px;">
+            When I fantasize of my dream position in the Data Science World, it includes responsibilities that leak into
+            all sectors of the business process. The profession of Data Science is much like an artist to me.
+            An artist in a sense that they must be given data, dissect it, extract meaning, and then be able to convey
+            the meaning to others in layman terms. There’s a beauty in overseeing every step in your process.
+            My dream position would not only include the technical role of collecting, manipulating, and extracting
+            insight from data. But also having the responsibility to present my findings to higher ups or stake holders
+            myself. Because I believe that no one can convey the meaning of their craft better than the crafter
+            themself.
+        </p>
+    </div>
+
+    <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center" flex="grow shrink 100%"
+        style="margin-bottom: 135px;margin-top: 5px;">
+
+        <h1 *ngIf="isNotWideScreen$ | async"
+            style="top:45px;position: relative;font-family: 'Scheherazade New', serif;font-weight: bold;font-size: 60px;color: rgb(95, 95, 95);text-align: center;width: 70%;">
+            My Ability and Interest for Learning</h1>
+        <h1 *ngIf="isWideScreen$ | async"
+            style="top:45px;position: relative;font-family: 'Scheherazade New', serif;font-weight: bold;font-size: 30px;color: rgb(95, 95, 95);text-align: center;width: 70%;">
+            My Ability and Interest for Learning</h1>
+        <p *ngIf="isNotWideScreen$ | async"
+            style="top:45px;position: relative;width:80%; text-align: center; color: darkgrey; font-size: 17px;">
+            With the field of Data Science toolbox always growing, one of the most valuable skillsets to develop is the
+            ability to learn quickly and adapt to new tools.
+            When I was hired at my most recent job, I was told that I would be working with primarily Analytics and Data
+            Pipeline, however with budget being tight and the
+            company needing work on their in-development software, I took a step forward and said that I could aid in
+            the front-end development despite never having experience in
+            HTML, SCSS, or typescript (What the software was composed of). While initially quite stressful, within a
+            month I developed the proficiency to by myself develop two company websites, and a software for our Carriers
+            (Truck Drivers).
+            While I may not currently be proficient in every Data Science tool that exists, I don't believe that there
+            is a tool that exists that I couldn't take on.
+        </p>
+        <p *ngIf="isWideScreen$ | async"
+            style="top:45px;position: relative;width:80%; text-align: center; color: darkgrey; font-size: 17px;">
+            With the field of Data Science toolbox always growing, one of the most valuable skillsets to develop is the
+            ability to learn quickly and adapt to new tools.
+            When I was hired at my most recent job, I was told that I would be working with primarily Analytics and Data
+            Pipeline, however with budget being tight and the
+            company needing work on their in-development software, I took a step forward and said that I could aid in
+            the front-end development despite never having experience in
+            HTML, SCSS, or typescript (What the software was composed of). While initially quite stressful, within a
+            month I developed the proficiency to by myself develop two company websites, and a software for our Carriers
+            (Truck Drivers).
+            While I may not currently be proficient in every Data Science tool that exists, I don't believe that there
+            is a tool that exists that I couldn't take on.
+        </p>
+
+    </div>
+
+    <!--
+    <div *ngIf="isNotWideScreen$ | async" id="services" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center" flex="grow shrink 100%"
+        style="margin-bottom: 180px;margin-top: 75px;">
+
+        <h1
+            style="top:45px;color: rgb(95, 95, 95);position: relative;right: -5px;font-family: 'Scheherazade New', serif;font-weight: bold;font-size: 60px;">
+            Who We Serve</h1>
+        <div style="top:45px;color: darkgrey; font-size: 22px;position: relative;" fxLayout=row fxLayoutGap="320px">
+            <div fxLayout="column" style="text-align: center;">
+                <p>Truck/Trailer/RV Repairs</p>
+                <p>Auto Service</p>
+                <p>ABS Diagnostics</p>
+                <p>Clutch Replacement</p>
+                <p>A/C Service</p>
+                <p>Tune-Ups</p>
+                <p>Brakes/Seals/Tires</p>
+            </div>
+            <div fxLayout="column" style="text-align: center;">
+                <p>Computer Diagnostics</p>
+                <p>Engine Swaps</p>
+                <p>Oil Lubes/Welding</p>
+                <p>Tune-Ups</p>
+                <p>Light & Electrical</p>
+                <p>Engine Overhaul</p>
+                <p>Suspension Systems</p>
             </div>
         </div>
     </div>
-    <div class="black">
-        <div class="container_4" fxFlex="100" style="background-image:url(assets/log2.jpg)">
 
-        </div>
-    </div>
 
-    <div class="container_5">
+    <div *ngIf="isWideScreen$ | async" id="services" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center" flex="grow shrink 100%"
+        style="margin-bottom: 150px;">
 
-    </div>
-
-<!---
-    <div class="container_2" fxLayout="column">
-        <div fxLayout="column" >
-            <div class="container_1" fxFlex="1 1 100%" style="background-color: rgb(79, 164, 179); max-height: 50%;">
-
+        <h1
+            style="top:45px;color: rgb(95, 95, 95);position: relative;right: -5px;font-family: 'Scheherazade New', serif;font-weight: bold;font-size: 30px;">
+            Who We Serve</h1>
+        <div style="top:45px;color: darkgrey; font-size: 22px;position: relative;" fxLayout=row fxLayoutGap="20%">
+            <div fxLayout="column" style="text-align: center;">
+                <p>Truck/Trailer/RV Repairs</p>
+                <p>Auto Service</p>
+                <p>ABS Diagnostics</p>
+                <p>Clutch Replacement</p>
+                <p>A/C Service</p>
+                <p>Tune-Ups</p>
+                <p>Brakes/Seals/Tires</p>
             </div>
-            <div class="container_b1" fxFlex="1 1 100%" style="background-color: rgb(26, 25, 25); max-height: 10%;">
-
+            <div fxLayout="column" style="text-align: center;">
+                <p>Computer Diagnostics</p>
+                <p>Engine Swaps</p>
+                <p>Oil Lubes/Welding</p>
+                <p>Tune-Ups</p>
+                <p>Light & Electrical</p>
+                <p>Engine Overhaul</p>
+                <p>Suspension Systems</p>
             </div>
-
-        </div>
-        <mat-card class="mat_card_float" fxFlex="1 1 100%" fxLayoutAlign="center center">
-
-        </mat-card>
-        <mat-card class="mat_card_float2" fxFlex="1 1 100%" fxLayoutAlign="center center">
-
-        </mat-card>
-        <mat-card class="mat_card_float3" fxFlex="1 1 100%" fxLayoutAlign="center center">
-
-        </mat-card>
-        <div class="circle_div">
-            <img class="circle_frame" src="assets/ceo3.jpg">
-        </div>
-        <div class="workerman">
-            <img class="workerman_img" src="assets/medium-shot-man-posing-with-crossed-arms.jpg">
-        </div>
-        <div class="horiz_rect_div">
-            <mat-card class="mat_card_float4">
-
-            </mat-card>
         </div>
     </div>
-
 -->
-    <div class="container_6" fxLayout="row wrap" fxFlex="100">
-        <div fxFlex="1 1 100%" fxLayoutAlign="center center">
 
-            <form id="form" class="topBefore">
+    <div *ngIf="isNotWideScreen$ | async" id="about" fxLayout="column" fxLayoutGap="80px"
+        style="background-color: #FFF5EE;">
+        <div class="custom-shape-divider-top-1633387208">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <h1
+            style="color: rgb(95, 95, 95);font-family: 'Scheherazade New', serif;font-weight: bold;font-size: 60px; text-align: center;position: relative;">
+            Who am I</h1>
+        <div fxLayout="row">
+            <div fxFlex=50 fxLayoutAlign="center center">
+                <img src="assets/josh.jpg" style="border-radius: 50%;position: relative;left: 64px;" height="360px">
+            </div>
+            <div fxLayout="Column" fxFlex=50>
+                <p style="text-align: left; color: rgb(122, 122, 122); font-size: 50px;">Joshua Rodriguez</p>
+                <p style="text-align: left; color: darkgrey; font-size: 23px;">Data Scientist/Software Engineer</p>
+                <p style="text-align: left; color: darkgrey; font-size: 23px;">Bachelors of Science in Data Science</p>
+                <p style="text-align: left; color: darkgrey; font-size: 23px;">International Nomad</p>
 
-                <input id="name" type="text" placeholder="Full Name">
-                <input id="email" type="text" placeholder="E-mail">
-                <textarea id="message" type="text" placeholder="Message"></textarea>
-                <input id="submit" type="submit" value="SUBMIT">
+            </div>
+        </div>
 
-            </form>
+        <div class="custom-shape-divider-bottom-1633387251">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            </svg>
         </div>
     </div>
 
-    <!--Carousel Section Code Liner 303:354--->
-    <div class="container_2" fxlayout="row" fxFlex="100">
-        <div fxFlex="1 1 100%" fxLayout="column" fxLayoutAlign="center center"
-            style="background-color: rgb(90, 92, 95); max-height: 50%;">
-            <h4>Tena Transportation Inc.</h4>
-            <h7>Casa Grande,Arizona 85122</h7>
+    <div *ngIf="isWideScreen$ | async" id="about" fxLayout="column" fxLayoutGap="30px"
+        style="background-color: #FFF5EE;">
+        <div class="custom-shape-divider-top-1633387208">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <h1
+            style="color: rgb(95, 95, 95);font-family: 'Scheherazade New', serif;font-weight: bold;font-size: 60px; text-align: center;position: relative;">
+            Who am I</h1>
+        <div fxLayout="column">
+            <div fxFlex=50 fxLayoutAlign="center center">
+                <img src="assets/josh.jpg" style="border-radius: 50%;position: relative;" height="360px">
+            </div>
+            <div fxLayout="Column" fxFlex=50 style="padding-top: 20px;">
+                <p style="text-align: center; color: rgb(122, 122, 122); font-size: 30px;">Joshua Rodriguez</p>
+                <p style="text-align: center; color: darkgrey; font-size: 17px;">Data Scientist/Software Engineer</p>
+                <p style="text-align: center; color: darkgrey; font-size: 17px;">Bachelors of Science in Data Science
+                </p>
+                <p style="text-align: center; color: darkgrey; font-size: 17px;">International Nomad</p>
+
+            </div>
+        </div>
+
+        <div class="custom-shape-divider-bottom-1633387251">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            </svg>
         </div>
     </div>
 
-</div>
+
+
+
+    <div *ngIf="isNotWideScreen$ | async" id="testimonials" fxLayout="row" style="height: 550px;">
+        <div fxFlex=50 fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="25px" style="padding-left: 14%;">
+            <h1
+                style="color: rgb(138, 63, 20); text-align: start; font-family: 'Scheherazade New', serif;font-size: 60px;font-weight: 600">
+                External Links</h1>
+            <p style="color: darkgrey;max-width: 450px;">The following links showcase my applications to the various
+                skills that a data scientist needs. Some will lead you to an external
+                website such as Github. Also, the source code for this websites front end wil also be located in the
+                Github Repo</p>
+        </div>
+
+        <div fxFlex=50 fxLayout="column" fxLayoutGap="43px" fxLayoutAlign="center start">
+            <div fxLayout="column" fxLayoutGap="25px">
+                <h3 style="color:rgb(99, 48, 19); font-weight: bold;font-size:large;">
+                    Github Repo
+                </h3>
+                <a href="https://github.com/JoshuaRodriguez2/DataSciencePortfolio" style="color: black;">
+                    https://github.com/JoshuaRodriguez2/DataSciencePortfolio
+                </a>
+            </div>
+            <!--
+            <div fxLayout="column" fxLayoutGap="25px">
+                <h3 style="color:rgb(99, 48, 19); font-weight: bold;font-size:large;">
+                    Blog Post
+                </h3>
+                <a href="https://github.com/JoshuaRodriguez2/DataSciencePortfolio" style="color: black;">
+                    https://github.com/JoshuaRodriguez2/DataSciencePortfolio
+                </a>
+            </div>
+            -->
+            <div fxLayout="column" fxLayoutGap="25px">
+                <h3 style="color:rgb(99, 48, 19); font-weight: bold;font-size:large;">
+                    CV/Resume
+                </h3>
+                <a href="assets/OfficialResume.pdf" style="color: black;">
+                    JoshuaRodriguezOfficialResume.pdf
+                </a>
+            </div>
+            <!--
+            <div fxLayout="row" fxLayoutGap="30px">
+
+                <input matInput
+                    style="background-color: rgb(255, 255, 255);width:235px;height: 40px;border-radius:3px;color: black;border-width:thin; height:95%;"
+                    type="text" placeholder="First Name" value="">
+
+                <input
+                    style="background-color: rgb(255, 255, 255);width:235px;height: 40px;border-radius:3px;color: black;"
+                    type="text" placeholder="Last Name" value="">
+            </div>
+            <div>
+                <input
+                    style="background-color: rgb(255, 255, 255);width:500px;height: 40px;border-radius:3px;color: black;"
+                    type="text" placeholder="Email" value="">
+            </div>
+            <div>
+                <input
+                    style="background-color: rgb(255, 255, 255);width:500px;height: 150px;border-radius:3px;color: black; margin-bottom: 10px;"
+                    type="text" placeholder="Message" value="">
+            </div>
+         
+            <div>
+                <div class="material_icon" fxFlex="grow-shrink 100%">
+                    <button mat-button
+                        style="background-color: rgb(255, 115, 0);; width:60px;min-height:50px;border-radius:100px;color: white;font-weight: bold;">
+                        <span class="material-icons-outlined">
+                            send
+                        </span>
+
+
+                    </button>
+                </div>
+            </div>
+        -->
+        </div>
+    </div>
+
+
+    <div *ngIf="isWideScreen$ | async" id="testimonials" fxLayout="column"
+        style="height: 550px;margin-bottom: 130px;padding-top: 50px;" class="contact" fxLayoutGap="64px">
+        <div fxFlex=50 fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+            <h1
+                style="color: rgb(138, 63, 20); text-align: start; font-family: 'Scheherazade New', serif;font-size: 50px;font-weight: 600">
+                External Links</h1>
+            <p style="color: darkgrey;width: 77%;">The following links showcase my applications to the various skills
+                that a data scientist needs. Some will lead you to an external
+                website such as Github. Also, the source code for this websites front end wil also be located in the
+                Github Repo</p>
+        </div>
+        <div fxFlex=50 fxLayout="column" fxLayoutGap="32px" fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayoutGap="25px">
+                <a href="https://github.com/JoshuaRodriguez2/DataSciencePortfolio"
+                    style="color:rgb(99, 48, 19); font-weight: bold;font-size:x-large;text-align: center;text-decoration: none;">
+                    Github Repo
+                </a>
+            </div>
+            <!--
+            <div fxLayout="column" fxLayoutGap="25px">
+                <a href="https://github.com/JoshuaRodriguez2/DataSciencePortfolio"
+                    style="color:rgb(99, 48, 19); font-weight: bold;font-size:x-large;text-align: center;text-decoration: none;">
+                    Blog Post
+                </a>
+            </div>
+        -->
+            <div fxLayout="column" fxLayoutGap="25px">
+
+                <a href="assets/OfficialResume.pdf"
+                    style="color:rgb(99, 48, 19); font-weight: bold;font-size:x-large;text-align: center;text-decoration: none;">
+                    CV/Resume
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+
+
+            <path style="position:relative;z-index:0;" fill="#E3963E" fill-opacity="1"
+                d="M0,192L84.7,256L169.4,160L254.1,128L338.8,64L423.5,160L508.2,32L592.9,0L677.6,128L762.4,64L847.1,224L931.8,96L1016.5,96L1101.2,96L1185.9,96L1270.6,160L1355.3,32L1440,256L1440,320L1355.3,320L1270.6,320L1185.9,320L1101.2,320L1016.5,320L931.8,320L847.1,320L762.4,320L677.6,320L592.9,320L508.2,320L423.5,320L338.8,320L254.1,320L169.4,320L84.7,320L0,320Z">
+            </path>
+            <path style="position:relative;z-index:3;" fill="#E97451" fill-opacity="1"
+                d="M0,288L84.7,96L169.4,192L254.1,96L338.8,64L423.5,224L508.2,160L592.9,160L677.6,160L762.4,128L847.1,64L931.8,256L1016.5,160L1101.2,128L1185.9,96L1270.6,224L1355.3,64L1440,96L1440,320L1355.3,320L1270.6,320L1185.9,320L1101.2,320L1016.5,320L931.8,320L847.1,320L762.4,320L677.6,320L592.9,320L508.2,320L423.5,320L338.8,320L254.1,320L169.4,320L84.7,320L0,320Z">
+            </path>
+            <path style="position:relative;z-index:3;" fill="#CC5500" fill-opacity="1"
+                d="M0,96L84.7,128L169.4,224L254.1,288L338.8,160L423.5,160L508.2,224L592.9,256L677.6,128L762.4,160L847.1,256L931.8,160L1016.5,96L1101.2,224L1185.9,192L1270.6,64L1355.3,128L1440,96L1440,320L1355.3,320L1270.6,320L1185.9,320L1101.2,320L1016.5,320L931.8,320L847.1,320L762.4,320L677.6,320L592.9,320L508.2,320L423.5,320L338.8,320L254.1,320L169.4,320L84.7,320L0,320Z">
+            </path>
+        </svg>
+
+    </div>
+-->
+    <div id="contact_info" fxLayout="Column" class="contact_div" fxLayoutGap="20px">
+
+        <div fxFlex=15 fxLayoutAlign="center">
+            <h1
+                style="font-weight: 600; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding-top: 60px;">
+                GET IN
+                TOUCH</h1>
+        </div>
+
+        <div *ngIf="isNotWideScreenContact$ | async" fxFlex=80 fxLayout="Row" fxLayoutAlign="center start"
+            fxLayoutGap="130px">
+            <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" fxFlex=10>
+                <span
+                    style="background-color: rgb(199, 185, 174);color: white;border-radius: 50px; height: 90px;width: 90px;"
+                    class="material-icons md-48" fxLayoutAlign="center center">room</span>
+                <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Address</h3>
+                <span style="font-weight: bold;text-align: center;">Mailing Address</span>
+                <span style="text-align:center;">Casa Grande, Arizona, United States</span>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" fxFlex=10>
+                <span
+                    style="background-color: rgb(199, 185, 174);color: white;border-radius: 50px; height: 90px;width: 90px;"
+                    class="material-icons md-48" fxLayoutAlign="center center">phone</span>
+                <h3
+                    style="font-weight:800; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">
+                    Phone</h3>
+                <span style="font-weight: bold;text-align: center;">All Inquiries</span>
+                <span style="text-align:center;">+1 (520) 840-8796</span>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" fxFlex=10>
+                <span
+                    style="background-color: rgb(199, 185, 174);color: white;border-radius: 50px; height: 90px;width: 90px;"
+                    class="material-icons md-48" fxLayoutAlign="center center">email</span>
+                <h3
+                    style="font-weight:800; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">
+                    Email</h3>
+                <span style="font-weight: bold;text-align: center;">All Inquiries</span>
+                <span style="text-align:center;">jrod72300@gmail.com</span>
+
+            </div>
+        </div>
+
+        <div *ngIf="isWideScreenContact$ | async" fxFlex=80 fxLayout="column" fxLayoutAlign="center center"
+            fxLayoutGap="40px" style="margin-bottom: 130px;">
+            <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" fxFlex=10>
+                <span
+                    style="background-color: rgb(199, 185, 174);color: white;border-radius: 50px; height: 90px;width: 90px;"
+                    class="material-icons md-48" fxLayoutAlign="center center">room</span>
+                <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">Address</h3>
+                <span style="font-weight: bold;text-align: center;">Mailing Address</span>
+                <span style="text-align:center;">Casa Grande, Arizona, United States</span>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" fxFlex=10>
+                <span
+                    style="background-color: rgb(199, 185, 174);color: white;border-radius: 50px; height: 90px;width: 90px;"
+                    class="material-icons md-48" fxLayoutAlign="center center">phone</span>
+                <h3
+                    style="font-weight:800; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">
+                    Phone</h3>
+                <span style="font-weight: bold;text-align: center;">All Inquiries</span>
+                <span style="text-align:center;">+1 (520) 840-8796</span>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" fxFlex=10>
+                <span
+                    style="background-color: rgb(199, 185, 174);color: white;border-radius: 50px; height: 90px;width: 90px;"
+                    class="material-icons md-48" fxLayoutAlign="center center">email</span>
+                <h3
+                    style="font-weight:800; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 600;">
+                    Email</h3>
+                <span style="font-weight: bold;text-align: center;">All Inquiries</span>
+                <span style="text-align:center;">jrod72300@gmail.com</span>
+            </div>
+        </div>
+
+        <div *ngIf="isNotWideScreenContact$ | async" fxlayout="row" style="padding-top: 35px;">
+            <div fxFlex="1 1 100%" fxLayout="row" fxLayoutAlign="space-between center"
+                style=" max-height: 50%;color: white;padding-left: 10%;padding-right: 10%;padding-bottom: 1%;">
+                <p style="font-weight:bold; font-size: 13px;">TIERRA INTELLIGENCE</p>
+                <p style="font-size: 13px;">© 2021 Tierra Intelligence</p>
+
+            </div>
+        </div>
+
+        <div *ngIf="isWideScreenContact$ | async" fxlayout="row" style="padding-top: 35px;">
+            <div fxFlex="1 1 100%" fxLayout="row" fxLayoutAlign="space-between center"
+                style=" max-height: 50%;color: white;padding-left: 9%;padding-right: 9%;padding-bottom: 1%;">
+                <p style="font-weight:bold; font-size: 10px;">TIERRA INTELLIGENCE</p>
+                <p style="font-size: 10px;">© 2021 Tierra Intelligence</p>
+
+            </div>
+        </div>
+
+    </div>
+    <!--background-color: rgb(204, 85, 0);-->

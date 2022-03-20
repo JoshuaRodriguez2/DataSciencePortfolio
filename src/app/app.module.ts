@@ -43,6 +43,15 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+var firebaseConfig = {
+  apiKey: "AIzaSyBiKM5ExPTDXa0OD_jjRyM83NjHr19U1J4",
+  authDomain: "portfolio-47e94.firebaseapp.com",
+  projectId: "portfolio-47e94",
+  storageBucket: "portfolio-47e94.appspot.com",
+  messagingSenderId: "1062696527565",
+  appId: "1:1062696527565:web:0f58b3273290ff5fa52b84"
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +63,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
     AppRoutingModule,
     AngularFireModule.initializeApp(environment),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     FlexLayoutModule,
     BrowserAnimationsModule,

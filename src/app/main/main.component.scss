@@ -17,7 +17,7 @@
   }
   .banner{
       color: rgba(255, 255, 255, 0.87);
-      background: url('/Users/joshuarodriguez/Documents/TenaWebsite/src/assets/hello.jpg')top left/cover no-repeat;
+      background: url('/Users/joshuarodriguez/Documents/portfolio-47e94/src/assets/hello.jpg')top left/cover no-repeat;
       height: 400px;
   }
   .banner-text{
@@ -35,12 +35,61 @@
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+.custom-shape-divider-bottom-1633039754 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1633039754 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 238px;
+}
+.custom-shape-divider-bottom-1633125313 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1633125313 svg {
+  position: relative;
+  display: block;
+  width: calc(106% + 1.3px);
+  height: 105px;
+}
+
+.custom-shape-divider-bottom-1633125313 .shape-fill {
+  fill: #FFFFFF;
+}
+.custom-shape-divider-bottom-1633039754 .shape-fill {
+  fill: #FFFFFF;
+}
 .toolbar{
-    min-height: 65px;
+    min-height:65px;
     position: sticky;
     top: 0;
     width:100%;
     z-index: 3;
+}
+.toolbar2{
+  min-height:65px;
+  top: 0;
+  width:100%;
+  z-index: 3;
+}
+.line{
+  height: 1px;
+  background-color: #bdb6af79;
 }
 .about_comp{
     padding-top: 95px;
@@ -80,7 +129,7 @@
 }
 .container_2{
         min-height:15px;
-        background-color: white;
+        background-color: #FFF5EE;
         color:white;
 }
 .mat_card_float{
@@ -124,8 +173,8 @@
   box-shadow: 5PX 5PX 5PX grayscale($color: #00000091);
 }
 .circle_frame{
- border-radius: 50%;
- max-width: 800px;
+ border-radius: 60px;
+ max-width: 400px;
 }
 .circle_div{
   position: relative;
@@ -172,32 +221,46 @@
          min-height:55px;
 }
 .card_box{
-        display:flex;
+        //display:flex;
         height: 500px;
-        background-color: grayscale($color: #dbd1d1);
+        //background-color: grayscale($color: #dbd1d1);
 }
  .card{
     display:flex;
-    height: 400px;
-    min-width: 200px;
-    max-width: 200px;
-    background-color: grayscale($color: #797575);
+    border-radius: 20px;
+    height: 310px;
+    min-width: 230px;
+    max-width: 230px;
+    background-color: white;
 }
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
 .card2{
+    border-radius: 20px;
     display:flex;
-    height: 400px;
+    height: 300px;
     min-width: 200px;
     background-color: grayscale($color: #636262);
 }
 .card3{
+  border-radius: 20px;
     display:flex;
-    height: 400px;
+    height: 300px;
     min-width: 200px;
     background-color: grayscale($color: #535050);
 }
 .card4{
     display:flex;
-    height: 400px;
+    border-radius: 20px;
+    height: 300px;
     min-width: 200px;
     background-color: grayscale($color: #494747);
 }
@@ -210,13 +273,66 @@
     max-height: 550px;
     overflow:scroll;
 }
-    
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 50px; }
+.material-icons-outlined.md-48 { font-size: 45px; }
 .carousel-item{
-    height: 32rem;
+    height:50.8rem;
+    //bottom: 70px;
     background:black;
-    text-shadow: 6px 3px 3px black;
+    //text-shadow: 6px 3px 3px black;
     color:white;
     position: relative;
+}
+.custom-shape-divider-bottom-1633044340 {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1633044340 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 65px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1633044340 .shape-fill {
+  fill: #FFF5EE;
+}
+.custom-shape-divider-bottom-1633126678 {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1633126678 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 65px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1633126678 .shape-fill {
+  fill: #FFFFFF;
+}
+.contact_div{
+  min-height: 620px;
+  //background-color: rgb(0, 92, 92);
+  background-color: rgb(255, 115, 0);
+  color: white;
 }
 .container{
     position: absolute;
@@ -228,15 +344,125 @@
 .black{
   background: black;
 }
+.custom-shape-divider-bottom-1632757967 {
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1632757967 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 167px;
+}
+
+.custom-shape-divider-bottom-1632757967 .shape-fill {
+  fill: #FFFFFF;
+}
+.custom-shape-divider-top-1632767659 .shape-fill {
+  fill: #FFFFFF;
+}
+.custom-shape-divider-top-1632767658 .shape-fill {
+  fill: rgba(0, 70, 83, 0.863);
+  z-index: -1;
+  top: 5px;
+  position: relative;
+  background-color: white;
+}
+.custom-shape-divider-top-163276765 .shape-fill {
+  bottom: 10px !important;
+  z-index: -1;
+  top: 5px;
+  position: relative;
+  background-color: white;
+}
+.custom-shape-divider-top-1632757965 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 167px;
+  bottom: 10px !important;
+}
+.custom-shape-divider-bottom-1632909480 {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+.carousel-slide{
+  position: relative;
+  z-index: 0;
+  bottom: 70px;
+}
+.custom-shape-divider-bottom-1632909480 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 156px;
+}
+
+.custom-shape-divider-bottom-1632909480 .shape-fill {
+  fill: #FFFFFF;
+}
+
 .overlay-image{
-    position:absolute;
+    position: absolute;
+    z-index: 0;
     bottom: 0;
     left: 0;
     right: 0;
     top: 0;
     background-position: center;
     background-size: cover;
-    opacity:0.5;
+    //opacity:.5;
+}
+.custom-shape-divider-top-1632909775 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  color: white;
+}
+.custom-shape-divider-bottom-1632909995 {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1632909995 svg {
+  position: relative;
+  display: block;
+  width: calc(107% + 1.3px);
+  height: 144px;
+}
+
+.custom-shape-divider-bottom-1632909995 .shape-fill {
+  fill: #FFFFFF;
+}
+.custom-shape-divider-top-1632909775 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 113px;
+}
+
+.custom-shape-divider-top-1632909775 .shape-fill {
+  fill: #FFFFFF;
 }
 .about_paragraph{
     max-width: 105px;
@@ -259,6 +485,7 @@
     margin-top: 40px;
     margin: auto;
 }
+
 .square2{
   height: 100px;
   width: 100px;
@@ -385,7 +612,7 @@ input {
   
   background: transparent;
   outline: none;
-  color: #d4c5b3;
+  //color: #d4c5b3;
   
   border: solid 1px #b3aca7;
   border-bottom: none;
@@ -447,4 +674,43 @@ textarea:hover {
 
 #submit:hover {
   color: #e2dedb;
+}
+.custom-shape-divider-top-1633387208 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1633387208 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 63px;
+}
+
+.custom-shape-divider-top-1633387208 .shape-fill {
+  fill: #FFFFFF;
+}
+.custom-shape-divider-bottom-1633387251 {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1633387251 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 63px;
+}
+
+.custom-shape-divider-bottom-1633387251 .shape-fill {
+  fill: #FFFFFF;
 }

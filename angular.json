@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TenaWebsite": {
+    "portfolio-47e94": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -79,25 +79,25 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "TenaWebsite:build"
+            "browserTarget": "portfolio-47e94:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "TenaWebsite:build:production"
+              "browserTarget": "portfolio-47e94:build:production"
             },
             "hmr": {
               "hmr": true,
-              "browserTarget": "TenaWebsite:build:hmr"
+              "browserTarget": "portfolio-47e94:build:hmr"
             },
             "ec": {
-              "browserTarget": "TenaWebsite:build:ec"
+              "browserTarget": "portfolio-47e94:build:ec"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TenaWebsite:build"
+            "browserTarget": "portfolio-47e94:build"
           }
         },
         "test": {
@@ -134,18 +134,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "TenaWebsite:serve"
+            "devServerTarget": "portfolio-47e94:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "TenaWebsite:serve:production"
+              "devServerTarget": "portfolio-47e94:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "TenaWebsite",
+  "defaultProject": "portfolio-47e94",
   "cli": {
     "analytics": "7c2445e4-8084-4235-804b-281be7d2960a"
   }
