@@ -1,0 +1,618 @@
+---
+title: "DataVisualizations"
+output: html_document
+---
+
+---JOINT DATASET---
+------------------------- NEIGHBORHOOD PRICE VARIATION RESEARCH QUESTION ----------------------------
+```{r s}
+library(factoextra)
+library(dplyr)
+library(ggplot2)
+
+###ATHENS DATA PREP####
+AthensListing<-
+AthensReviews<-
+AthensListing<-
+AthensReviews<-
+AthensListing<-
+AthensReviews<-
+  
+table(AthensListing$neighbourhood_cleansed)
+
+AthensListingSimp<-AthensListing%>%
+  
+  #I removed shared rooms because these prices can become misleading results when left with the private rooms and the entire listings
+  filter(room_type %in% c("Entire home/apt"))%>%
+  
+  #What i did here was filter the top 4 neighborhoods or the neighborhoods with a large enough value to conduct the desired queiry 
+
+  filter(neighbourhood_cleansed %in% c("ŒïŒúŒ†ŒüŒ°ŒôŒöŒü Œ§Œ°ŒôŒìŒ©ŒùŒü-Œ†ŒõŒëŒöŒë","ŒöŒüŒ•ŒöŒëŒöŒô-ŒúŒëŒöŒ°Œ•ŒìŒôŒëŒùŒùŒó","ŒùŒïŒüŒ£ ŒöŒüŒ£ŒúŒüŒ£","ŒúŒüŒ•Œ£ŒïŒôŒü-ŒïŒûŒëŒ°ŒßŒïŒôŒë-ŒùŒïŒëŒ†ŒüŒõŒó"))
+
+table(AthensListingSimp$neighbourhood_cleansed)
+table(AthensListingSimp$neighbourhood_cleansed,AthensListingSimp$room_type)
+
+
+#the following plot is showing the distribution of the various listings within their subjected neighborhood 
+ggplot(AthensListingSimp,aes(x=longitude,y=latitude,col=neighbourhood_cleansed))+geom_point(size=.7)+theme(legend.position="none")+labs(title="Listings in Athens
+                                                                                                                                       ",x="Longitude",y="Latitude")+ theme(plot.title = element_text(hjust = 0.5,face = "bold"))
+
+#write.csv(AthensListingSimp, file="AthLS.csv")
+
+ALS1<-AthensListingSimp %>%
+  
+  filter(neighbourhood_cleansed=="ŒïŒúŒ†ŒüŒ°ŒôŒöŒü Œ§Œ°ŒôŒìŒ©ŒùŒü-Œ†ŒõŒëŒöŒë")%>%
+  
+  filter(price<=2999)
+  
+a1m<-mean(ALS1$price)
+  
+
+ALS1F<- ALS1 %>%
+  
+  filter(price>=a1m)%>%
+  
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+
+  mutate(rel=(price/a1m)-1)
+
+
+ALS2<- AthensListingSimp %>%
+  
+  filter(neighbourhood_cleansed=="ŒöŒüŒ•ŒöŒëŒöŒô-ŒúŒëŒöŒ°Œ•ŒìŒôŒëŒùŒùŒó")%>%
+  
+  filter(price<=2999)
+  
+a2m<-mean(ALS2$price)
+  
+
+ALS2F<- ALS2 %>%
+  
+  filter(price>=a2m)%>%
+  
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+
+  mutate(rel=(price/a2m)-1)
+
+
+
+ALS3<- AthensListingSimp %>%
+  
+  filter(neighbourhood_cleansed=='ŒúŒüŒ•Œ£ŒïŒôŒü-ŒïŒûŒëŒ°ŒßŒïŒôŒë-ŒùŒïŒëŒ†ŒüŒõŒó') %>%
+  
+  filter(price<=2999)
+  
+  a3m<-mean(ALS3$price)
+  
+
+ALS3F<- ALS3 %>%
+  
+  filter(price>=a3m)%>%
+  
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+
+  mutate(rel=(price/a3m)-1)
+
+
+
+ALS4<- AthensListingSimp %>%
+  
+  filter(neighbourhood_cleansed=="ŒùŒïŒüŒ£ ŒöŒüŒ£ŒúŒüŒ£")%>%
+  
+  filter(price<=2999)
+  
+  a4m<-mean(ALS4$price)
+  
+
+ALS4F<- ALS4 %>%
+  
+  filter(price>=a4m)%>%
+  
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+
+  mutate(rel=(price/a4m)-1)
+
+
+print(ALS3F)
+
+
+
+
+###PARIS DATA PREP####
+table(ParisListings$neighbourhood_cleansed)
+ 
+ParisListingSimp<-ParisListings%>%
+  
+  #I removed shared rooms because these prices can become misleading results when left with the private rooms and the entire listings
+  filter(room_type %in% c("Entire home/apt"))%>%
+  
+  #What i did here was filter the top 4 neighborhoods or the neighborhoods with a large enough value to conduct the desired queiry 
+
+  filter(neighbourhood_cleansed %in% c("Entrep√¥t","Popincourt","Vaugirard","Batignolles-Monceau"))
+
+table(ParisListingSimp$neighbourhood_cleansed)
+table(ParisListingSimp$neighbourhood_cleansed,ParisListingSimp$room_type)
+
+#the following plot is showing the distribution of the various listings within their subjected neighborhood 
+ggplot(ParisListingSimp,aes(x=longitude,y=latitude,col=neighbourhood_cleansed))+geom_point(size=.7)+theme(legend.position="none")+labs(title="Listings in Athens
+                                                                                                                                       ",x="Longitude",y="Latitude")+ theme(plot.title = element_text(hjust = 0.5,face = "bold"))
+
+#write.csv(RomeListingSimp, file="RomeLS.csv")
+
+PLS1<-ParisListingSimp %>%
+  filter(neighbourhood_cleansed=="Entrep√¥t")%>%
+  filter(price<=2999)
+
+p1m<-mean(PLS1$price)
+  
+PLS1F<- PLS1 %>%
+  filter(price>=p1m)%>%
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+  mutate(rel=(price/p1m)-1)
+
+PLS2<- ParisListingSimp %>%
+  filter(neighbourhood_cleansed=="Popincourt")%>%
+  filter(price<=2999)
+  
+p2m<-mean(PLS2$price)
+  
+PLS2F<- PLS2 %>%
+  filter(price>=p2m)%>%
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+  mutate(rel=(price/p2m)-1)
+
+PLS3<- ParisListingSimp %>%
+  filter(neighbourhood_cleansed=='Vaugirard') %>%
+  filter(price<=2999)
+
+  p3m<-mean(ALS3$price)
+  
+PLS3F<- PLS3 %>%
+  filter(price>=p3m)%>%
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+  mutate(rel=(price/p3m)-1)
+
+PLS4<- ParisListingSimp %>%
+  filter(neighbourhood_cleansed=="Batignolles-Monceau")%>%
+  filter(price<=2999)
+
+  p4m<-mean(ALS4$price)
+  
+
+PLS4F<- PLS4 %>%
+  filter(price>=p4m)%>%
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+  mutate(rel=(price/p4m)-1)
+
+
+
+###ROME DATA PREP####
+table(RomeListings$neighbourhood_cleansed)
+ 
+RomeListingSimp<-RomeListings%>%
+  
+  #I removed shared rooms because these prices can become misleading results when left with the private rooms and the entire listings
+  filter(room_type %in% c("Entire home/apt"))%>%
+  
+  #What i did here was filter the top 4 neighborhoods or the neighborhoods with a large enough value to conduct the desired queiry 
+
+  filter(neighbourhood_cleansed %in% c("XII Monte Verde","II Parioli/Nomentano","VII San Giovanni/Cinecitt√†","XIII Aurelia"))
+
+table(RomeListingSimp$neighbourhood_cleansed)
+#table(RomeListingSimp$neighbourhood_cleansed,RomeListingSimp$room_type)
+
+#the following plot is showing the distribution of the various listings within their subjected neighborhood 
+ggplot(RomeListingSimp,aes(x=longitude,y=latitude,col=neighbourhood_cleansed))+geom_point(size=.7)+theme(legend.position="none")+labs(title="Listings in Athens
+                                                                                                                                       ",x="Longitude",y="Latitude")+ theme(plot.title = element_text(hjust = 0.5,face = "bold"))
+
+RomeListingSimp
+
+RLS1<-RomeListingSimp %>%
+  filter(neighbourhood_cleansed=="XII Monte Verde")%>%
+  filter(price<=2999)
+
+r1m<-mean(RLS1$price)
+
+RLS1F<- RLS1 %>%
+  filter(price>=r1m)%>%
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+  mutate(rel=(price/r1m)-1)
+
+RLS2<- RomeListingSimp %>%
+  filter(neighbourhood_cleansed=="II Parioli/Nomentano")%>%
+  filter(price<=2999)
+  
+r2m<-mean(RLS2$price)
+  
+RLS2F<- RLS2 %>%
+  filter(price>=r2m)%>%
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+  mutate(rel=(price/r2m)-1)
+
+RLS3<- RomeListingSimp %>%
+  filter(neighbourhood_cleansed=="VII San Giovanni/Cinecitt√†") %>%
+  filter(price<=2999)
+
+  r3m<-mean(RLS3$price)
+  
+RLS3F<- RLS3 %>%
+  filter(price>=r3m)%>%
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+  mutate(rel=(price/r3m)-1)
+
+RLS4<- RomeListingSimp %>%
+  filter(neighbourhood_cleansed=="XIII Aurelia")%>%
+  filter(price<=2999)
+
+  r4m<-mean(RLS4$price)
+  
+
+RLS4F<- RLS4 %>%
+  filter(price>=r4m)%>%
+  select(price,neighbourhood_cleansed,availability_90,availability_365,availability_30)%>%
+  mutate(rel=(price/r4m)-1)
+
+RLS4F
+
+#Since parsing each neighborhood resulted in insufficient data points for a reliable analysis, in order to use all the data points for a single regression analysis ,I feature engineered a variable that is relative to the price average in their respective neighborhood. The varibale is labeled as "rel".
+
+finalData<-rbind(ALS1F,ALS2F,ALS3F,ALS4F,RLS1F,RLS2F,RLS3F,RLS4F,PLS1F,PLS2F,PLS3F,PLS4F)%>%
+  
+  #could of made this much easier and just appended a column when editing each dataset and adding their respective city, but i honeslty just didnt want to alter previous code and knew this would achieve the same reuslt.
+  mutate(Neighbourhood = case_when(
+    neighbourhood_cleansed=="ŒïŒúŒ†ŒüŒ°ŒôŒöŒü Œ§Œ°ŒôŒìŒ©ŒùŒü-Œ†ŒõŒëŒöŒë" ~ "Athens",
+    neighbourhood_cleansed== "ŒöŒüŒ•ŒöŒëŒöŒô-ŒúŒëŒöŒ°Œ•ŒìŒôŒëŒùŒùŒó" ~ "Athens",
+    neighbourhood_cleansed== "ŒúŒüŒ•Œ£ŒïŒôŒü-ŒïŒûŒëŒ°ŒßŒïŒôŒë-ŒùŒïŒëŒ†ŒüŒõŒó" ~ "Athens",
+    neighbourhood_cleansed== "ŒùŒïŒüŒ£ ŒöŒüŒ£ŒúŒüŒ£" ~ "Athens",
+    neighbourhood_cleansed=="II Parioli/Nomentano" ~ "Rome",
+    neighbourhood_cleansed== "VII San Giovanni/Cinecitt√†" ~ "Rome",
+    neighbourhood_cleansed== "XII Monte Verde" ~ "Rome",
+    neighbourhood_cleansed== "XIII Aurelia" ~ "Rome",
+    neighbourhood_cleansed=="Entrep√¥t" ~ "Paris",
+    neighbourhood_cleansed== "Popincourt" ~ "Paris",
+    neighbourhood_cleansed== "Vaugirard" ~ "Paris",
+    neighbourhood_cleansed== "Batignolles-Monceau" ~ "Paris"
+    ))%>%
+  
+  filter(rel<=6.5)
+
+  
+print(finalData)
+
+#Regression Analysis
+library(viridis)
+my_graph <- ggplot(finalData, aes(x = rel, y = availability_90)) +
+    geom_point(aes(color = Neighbourhood)) +
+    stat_smooth(method = "lm",
+        col = "#C42126",
+        se = FALSE,
+        size = 1)+
+  labs(x="Price",y="90 Day Availability",title = "How Does Price above Neighbourhood Average effect Booking Rate")+
+  theme(legend.position="bottom")+
+   scale_color_viridis(discrete = TRUE, option = "M")+
+   scale_fill_viridis(discrete = TRUE)
+my_graph
+
+gg<-lm(formula= availability_90~rel, data=finalData)
+summary(gg)
+head(AthensListing)
+```
+
+
+
+
+---JOINT DATSET---
+------------------------------ SENTIMENT ANALYSIS RESEARCH QUESTION ---------------------------------
+```{r c}
+library(dplyr)
+library(stringi)
+library(factoextra)
+library(tidyverse)
+library(tidyr)
+library(tidytext)
+library(stopwords)
+library(wordcloud)
+#Process of cleaning the dataeet to only be left with the needed columns and reviews in English.
+AthensListingCond <- AthensReviews %>%
+  
+  select(listing_id, comments)
+  
+RomeListingCond <- RomeReviews %>%
+  
+  select(listing_id, comments)
+
+ParisListingCond <- ParisReviews %>%
+  
+  select(listing_id, comments)
+# The [^\x01-\x7F] represents all Non- ASCII characters. In javascript we use [^\x00-\x7F], however since r does not nulls well, which "x00" is, we must then change it from [^\x00-\x7F] to [^\x01-\x7F]. ASCII characters are a group of 128 characters that contains A-Z, 0-9, and various special characters that are used in the English language. What this did was remove any data points that contained characters not belonging to the ASCII group from the data set. Approximately 140,000 data points were removed from the total going from ~414,000 to ~273,000. The grepl function was also used in this line of code, which searched for matching characters. When matched with ! as a prefix, it then searches to essentially remove non matching characters.
+AthensReviewsEnglish<-AthensListingCond[which(!grepl("[^\x01-\x7F]+", AthensListingCond$comments)),]
+RomeReviewsEnglish<-RomeListingCond[which(!grepl("[^\x01-\x7F]+", RomeListingCond$comments)),]
+ParisReviewsEnglish<-ParisListingCond[which(!grepl("[^\x01-\x7F]+", ParisListingCond$comments)),]
+
+head(ParisReviewsEnglish)
+#Creating a variation data set from AthensListing that will apply the relative price value to each unique listing, then we will append the AthensReviewEnglish data set with their subjected price-market value.
+
+#Checking the intervals to see if we should remove some of the outliers 
+
+asd<-sd(AthensListing$price,na.rm=TRUE)
+am<-mean(AthensListing$price,na.rm=TRUE)
+OutHigh<-am+(4*asd)
+
+#I decided that i am going to remove anything that is 4 standard deviations away from the mean, which gives us a cutoff at the value of 1394.054, since there is a floor for pricing on Airbnb, which is 0, i will not remove any of the listings on the lower end of the distribution however since there is no ceiling for how high one can list their listing, i will remove the most illogical prices to have a cleaner analysis 
+
+
+nineMeanA<-mean(AthensListing$availability_90)
+nineMeanR<-mean(RomeListings$availability_90)
+nineMeanP<-mean(ParisListings$availability_90)
+
+#nineMean
+availabilityParseA<- AthensListing %>%
+  
+  select(id,room_type,availability_90)%>%
+  
+  mutate(BookingRateClass = case_when(
+
+    availability_90<nineMeanA ~ "under",
+    
+   availability_90>nineMeanA ~ "over"
+  ))%>%
+  
+  rename(listing_id=id)
+
+
+availabilityParseR<- RomeListings %>%
+  
+  select(id,room_type,availability_90)%>%
+  
+  mutate(BookingRateClass = case_when(
+
+    availability_90<nineMeanR ~ "under",
+    
+   availability_90>nineMeanR ~ "over"
+  ))%>%
+  
+  rename(listing_id=id)
+
+
+availabilityParseP<- ParisListings %>%
+  
+  select(id,room_type,availability_90)%>%
+  
+  mutate(BookingRateClass = case_when(
+
+    availability_90<nineMeanP ~ "under",
+    
+   availability_90>nineMeanP ~ "over"
+  ))%>%
+  
+  rename(listing_id=id)
+#availabilityParse
+#table(AthensPriceMarket$class)
+
+#The process of the sentiment analysis begins here
+review_and_rateA<- merge(availabilityParseA,AthensReviewsEnglish, by="listing_id")%>%
+  
+  select(listing_id,BookingRateClass,comments)
+
+review_and_rateR<- merge(availabilityParseR,RomeReviewsEnglish, by="listing_id")%>%
+  
+  select(listing_id,BookingRateClass,comments)
+
+review_and_rateP<- merge(availabilityParseP,ParisReviewsEnglish, by="listing_id")%>%
+  
+  select(listing_id,BookingRateClass,comments)
+
+
+review_and_rate <- rbind(review_and_rateA,review_and_rateR,review_and_rateP)
+count(review_and_rateP)
+#########all the data should be combined at this point form the 3 cities########
+tidy_reviews<-review_and_rate %>%
+  unnest_tokens(word, comments)
+
+
+#tidy_reviews
+#issue with the anti-join function, will resolve later
+matchwords_reviews<-dplyr::anti_join(tidy_reviews, get_stopwords(), by="word")
+
+#matchwords_reviews
+
+matchwords_reviews_undercount<- matchwords_reviews %>%
+  
+  filter(BookingRateClass=="under")%>%
+  
+  count(word, sort=TRUE)
+
+
+reviews_undercount<- matchwords_reviews %>%
+  
+  filter(BookingRateClass=="under")
+
+
+matchwords_reviews_overcount<- matchwords_reviews %>%
+  
+  filter(BookingRateClass=="over")%>%
+  
+  count(word, sort=TRUE)
+  
+reviews_overcount<- matchwords_reviews %>%
+  
+  filter(BookingRateClass=="over")
+
+#matchwords_reviews_overcount
+W<-wordcloud(matchwords_reviews_overcount$word,matchwords_reviews_overcount$n,random.order = FALSE, rot.per = .3,scale = c(4,.5),max.words =150,colors=brewer.pal(7,"Dark2"))
+
+#L<-wordcloud(matchwords_reviews_undercount$word,matchwords_reviews_undercount$n,random.order = FALSE,random.border=TRUE, rot.per = .3,scale = c(4,.5),max.words #=150,colors=brewer.pal(7,"Dark2"))
+
+positive<- get_sentiments("bing")%>%
+  filter(sentiment=="positive")
+
+
+  
+
+bing<- get_sentiments("bing")
+
+over_sentiment<- reviews_overcount %>%
+  inner_join(bing)%>%
+  mutate(num=
+  case_when(
+    sentiment=="positive" ~ 1,
+    sentiment== "negative" ~ -1
+  ))
+  
+under_sentiment<- reviews_undercount %>%
+  inner_join(bing)%>%
+  mutate(num=
+  case_when(
+    sentiment=="positive" ~ 1,
+    sentiment=="negative" ~ -1
+  ))
+
+negative_words<- over_sentiment%>%
+  
+  filter(sentiment=="negative")%>%
+  count(word, sort=TRUE)
+
+L<-wordcloud(negative_words$word,negative_words$n,random.order = FALSE,random.border=TRUE, rot.per = .3,scale = c(5,.5),max.words =150,colors=brewer.pal(6,"Spectral"))
+
+#over is percentage calc for highly unbooked listings
+table(over_sentiment$num)
+athens_over_percentage<-50754/(50754+788693)
+athens_over_percentage
+total_over_percentage<-294703/(294703+3797994)
+total_over_percentage
+
+#under is percentage calc for the highest booked listings
+table(under_sentiment$num)
+athens_under_percentage<- 30950/(30950+528598)
+athens_under_percentage
+total_under_percentage<- 249691/(249691+3396724)
+total_under_percentage
+```
+
+
+---SEPERATE DATSETS---
+------------------------ BOOKING RATE VIA LOCATION ANALYSIS RESEARCH QUESTION -------------------------
+```{r b}
+library(geosphere)
+
+
+###ATHENS####
+densityGraph<- AthensListing %>%
+  select(longitude,latitude, neighbourhood_cleansed, availability_90)
+#aggregate(LONG = unique(AthensListing$neighbourhood_cleansed), mean_value = sapply(split(AthensListing$longitude, AthensListing$neighbourhood_cleansed), mean))
+densityGraph
+
+ninetyDay<- AthensListing %>%
+  
+  select(id, price,availability_30,availability_90,availability_365,latitude, longitude) 
+
+
+geoSpace<- ninetyDay %>%
+  
+  mutate(distM= distCosine(matrix(c(ninetyDay$longitude,ninetyDay$latitude), ncol = 2), c(23.7257, 37.9715), r=6378137))%>%
+  
+  #only using listings with at least 2% booked so i can disclude faulty lisitngs, and onlyinclude listings that actually have been active.
+  filter(availability_365<358,availability_90<88,availability_30<29)
+
+head(geoSpace)
+
+#Checking to see if the distance in meters variable is correctly calculated. If it is then when plotting both the long and lat with the distM variable then they should have a limit of 23.7257, 37.9715, which are the coordinates of the Parthenon. Visually this will look as if they converge to the two points for the left and right
+
+plot(geoSpace$longitude,geoSpace$distM)
+plot(geoSpace$latitude,geoSpace$distM)
+#They both look as expected, variable was also tested in tableau where distM was set as a detail.
+
+
+my_geo <- ggplot(geoSpace, aes(x = distM, y = availability_90)) +
+    geom_point()+
+    stat_smooth(method = "lm",
+        col = "#C42126",
+        se = FALSE,
+        size = 1)+
+  labs(x="Distance From Parthenon in Meters",y="90 Day Availability",title = "Does Distance from the Parthenon Direclty effect Booking Rate?")+
+  theme(legend.position="bottom")
+my_geo
+
+geoLmAthens<-lm(formula= availability_90~distM, data=geoSpace)
+summary(geoLmAthens)
+
+
+
+
+###PARIS####
+
+ninetyDayP<- ParisListings %>%
+  
+  select(id, price,availability_30,availability_90,availability_365,latitude, longitude) 
+
+
+geoSpaceP<- ninetyDayP %>%
+  
+  mutate(distM= distCosine(matrix(c(ninetyDayP$longitude,ninetyDayP$latitude), ncol = 2), c(2.2945, 48.8584), r=6378137))%>%
+  
+  #only using listings with at least 2% booked so i can disclude faulty lisitngs, and onlyinclude listings that actually have been active.
+  filter(availability_365<358,availability_90<88,availability_30<29)
+
+head(geoSpaceP)
+
+#Checking to see if the distance in meters variable is correctly calculated. If it is then when plotting both the long and lat with the distM variable then they should have a limit of 23.7257, 37.9715, which are the coordinates of the Parthenon. Visually this will look as if they converge to the two points for the left and right
+
+plot(geoSpaceP$longitude,geoSpaceP$distM)
+plot(geoSpaceP$latitude,geoSpaceP$distM)
+#They both look as expected, variable was also tested in tableau where distM was set as a detail.
+
+
+my_geo_P <- ggplot(geoSpaceP, aes(x = distM, y = availability_90)) +
+    geom_point()+
+    stat_smooth(method = "lm",
+        col = "#C42126",
+        se = FALSE,
+        size = 1)+
+  labs(x="Distance From Eiffel Tower in Meters",y="90 Day Availability",title = "Does Distance from the Eiffel Tower Direclty Affect Booking Rate?")+
+  theme(legend.position="bottom")
+my_geo_P
+
+geoLmParis<-lm(formula= availability_90~distM, data=geoSpaceP)
+summary(geoLmParis)
+
+
+
+
+
+###ROME####
+
+ninetyDayR<- RomeListings %>%
+  
+  select(id, price,availability_30,availability_90,availability_365,latitude, longitude) 
+
+
+geoSpaceR<- ninetyDayR %>%
+  
+  mutate(distM= distCosine(matrix(c(ninetyDayR$longitude,ninetyDayR$latitude), ncol = 2), c(12.4922, 41.8902), r=6378137))%>%
+  
+  #only using listings with at least 2% booked so i can disclude faulty lisitngs, and onlyinclude listings that actually have been active.
+  filter(availability_365<358,availability_90<88,availability_30<29)
+
+head(geoSpaceR)
+
+#Checking to see if the distance in meters variable is correctly calculated. If it is then when plotting both the long and lat with the distM variable then they should have a limit of 23.7257, 37.9715, which are the coordinates of the Parthenon. Visually this will look as if they converge to the two points for the left and right
+
+plot(geoSpaceR$longitude,geoSpaceR$distM)
+plot(geoSpaceR$latitude,geoSpaceR$distM)
+#They both look as expected, variable was also tested in tableau where distM was set as a detail.
+
+my_geo_R <- ggplot(geoSpaceR, aes(x = distM, y = availability_90)) +
+    geom_point()+
+    stat_smooth(method = "lm",
+        col = "#C42126",
+        se = FALSE,
+        size = 1)+
+  labs(x="Distance From Colosseum in Meters",y="90 Day Availability",title = "Does Distance from the Colosseum Direclty Affect Booking Rate?")+
+  theme(legend.position="bottom")+
+  xlim(0,25000)
+my_geo_R
+
+geoLmRome<-lm(formula= availability_90~distM, data=geoSpaceR)
+summary(geoLmRome)
+
+```
